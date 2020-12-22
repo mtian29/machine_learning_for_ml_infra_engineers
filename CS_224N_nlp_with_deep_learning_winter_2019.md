@@ -47,3 +47,35 @@ BERT (Bidirectional Encoder Representations from Transformers)
 
 Transformer-based networks (e.g. BERT) can be up to 24 layers 
 Multi-layer RNNs are powerful, but you might need skip/dense-connections if it’s deep
+
+## Machine Translation, seq2seq, Attention
+https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/slides/cs224n-2019-lecture08-nmt.pdf
+
+Machine translation is a major use case of sequence to sequence model (improved by attention)
+
+- Statistical Machine Translation, SMT (1990 - 2010)
+
+given x, find translation of x in language y.
+`Find argmax p(y|x) = argmax p(x|y) * p(y)` -> get y
+
+- alignment
+
+Alignment is the correspondence between particular words in the
+translated sentence pair.
+
+- Neural Machine Translation (NMT) - better than SMT
+
+The neural network architecture is called sequence-to-sequence (aka seq2seq) and it involves two RNNs. Decoder RNN (provides an vector of source sentence feed into encoder) and Encoder RNN (generate the target sentence).
+
+- beam search decoding, beam search size = k
+
+For each of the k hypotheses, find top k next words and calculate scores. Of these k^2 hypotheses, just keep k with highest scores
+
+- bottleneck problem
+
+Encoding (vector) of the source sentence. This needs to capture all information about the source sentence. Information bottleneck!
+
+- Attention: solution for bottleneck problem. Focus on particular parts of the input
+
+on each step of the decoder, use direct connection to the encoder to focus on a particular part of the source sequence.
+Given a set of vector values, and a vector query, attention is a technique to compute a weighted sum of the values, dependent on the query.
