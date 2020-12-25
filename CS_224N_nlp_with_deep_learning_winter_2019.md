@@ -98,3 +98,18 @@ https://arxiv.org/pdf/1706.03762.pdf
 
 ### bert : Use transformer for embedding.
 create only the embeddings
+
+## text generation
+https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/slides/cs224n-2019-lecture15-nlg.pdf
+
+### Decoding algrorithms
+- greedy decoding
+- beam search
+- sampling methods
+- softmax temperature
+
+### Sumarization
+given input text x, write a summary y which is shorter and
+contains the main information of x.
+
+### Dialogue
