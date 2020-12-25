@@ -79,3 +79,19 @@ Encoding (vector) of the source sentence. This needs to capture all information 
 
 on each step of the decoder, use direct connection to the encoder to focus on a particular part of the source sequence.
 Given a set of vector values, and a vector query, attention is a technique to compute a weighted sum of the values, dependent on the query.
+
+## Transformer, Bert
+### transformer: replace LSTM.
+https://www.youtube.com/watch?v=TQQlZhbC5ps&ab_channel=CodeEmporium
+https://www.tensorflow.org/tutorials/text/transformer
+http://nlp.seas.harvard.edu/2018/04/03/attention.html
+https://arxiv.org/pdf/1706.03762.pdf
+
+- RNN is slow. Transformer training is fast, in parallel.
+- All words in. Then the embedding for all words out from encoder
+- Input word embedding + positional encoder -> the input for transformer.
+- Encoders: (1) Attention vector for each word: which other words is more relavant to this word
+- Decoders: predict the next word given the previous word in the output and input embedding. -> get the probably distribution.
+
+### bert : Use transformer for embedding.
+create only the embeddings
