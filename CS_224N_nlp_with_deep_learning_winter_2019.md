@@ -83,8 +83,11 @@ Given a set of vector values, and a vector query, attention is a technique to co
 ## Transformer, Bert
 ### transformer: replace LSTM.
 https://www.youtube.com/watch?v=TQQlZhbC5ps&ab_channel=CodeEmporium
+
 https://www.tensorflow.org/tutorials/text/transformer
+
 http://nlp.seas.harvard.edu/2018/04/03/attention.html
+
 https://arxiv.org/pdf/1706.03762.pdf
 
 - RNN is slow. Transformer training is fast, in parallel.
