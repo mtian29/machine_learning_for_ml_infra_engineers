@@ -1,4 +1,5 @@
 https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/index.html#coursework
+https://www.youtube.com/playlist?list=PL75e0qA87dlFJiNMeKltWImhQxfFwaxvv
 
 ## Recurrent Neural Networks and Language Models
 https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/slides/cs224n-2019-lecture06-rnnlm.pdf
@@ -96,8 +97,44 @@ https://arxiv.org/pdf/1706.03762.pdf
 - Encoders: (1) Attention vector for each word: which other words is more relavant to this word
 - Decoders: predict the next word given the previous word in the output and input embedding. -> get the probably distribution.
 
-### bert : Use transformer for embedding.
-create only the embeddings
+### Bert
+https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html
+
+https://www.youtube.com/watch?v=xI0HHN5XKDo&ab_channel=CodeEmporium
+
+https://github.com/google-research/bert
+https://arxiv.org/abs/1810.04805
+https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/bert_finetuning_with_cloud_tpus.ipynb
+
+- Bidirectional Encoder Representations from Transformers
+- Consider the full context of a word by looking at the words that come before and after it
+- Just a stack of transformer encoders for language understanding 
+- pretraining using unannotated text (input is 2 sentences). (1) masked language model (2) next sentence prediction 
+- After pretraining, it generates an embedding for each word (considering contextual words as well)
+- Fine tunning: for specific nlp tasks. -> supervised learning. e.g. Q&A 
+- A “sequence” refers to the input token sequence to BERT, which may be a single sentence or two sentences packed together
+- tf-hub: https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/3
+  - pooled_output for classification: returns [batch_size, hidden_size(768)]. --> dropout + full connected layer(num_labels node) + softmax --> use for classification
+  - sequence_output returns [batch_size, sequence_length, hidden_size]
+  - batch size: number of sequences (sentences)
+  - sequence_length: max 128, == number of tokens in this sequence
+  - hidden size: 768, the feature size of this token. (the embedding of this token)
+
+### word pieces
+Breaking word into smaller pieces. (i.e. "calling" -> ["call", "##ing"])
+
+if these get segmented as walk@@ ing, walk@@ ed, etc., notice that all of them will now have walk@@ in common, which will occur much frequently while training, and the model might be able to learn more about it.
+
+### Word embeddings
+- static word embedding: one word -> one vector
+Word2Vec, GloVe, 
+
+- Contextualized (Dynamic) Word Embedding (word, word, word) -> (vector, vector, vector)
+Meaning of a word depends on the words surrounding it. 
+CoVe, ELMo, BERT
+
+### Transfer learning
+Transfer learning — a technique where instead of training a model from scratch, we use models pre-trained on a large dataset and then fine-tune them for specific natural language tasks.
 
 ## text generation
 https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/slides/cs224n-2019-lecture15-nlg.pdf
