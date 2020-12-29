@@ -117,7 +117,7 @@ https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/
   - pooled_output for classification: returns [batch_size, hidden_size(768)]. --> dropout + full connected layer(num_labels node) + softmax --> use for classification
   - sequence_output returns [batch_size, sequence_length, hidden_size]
   - batch size: number of sequences (sentences)
-  - sequence_length: max 128, == number of tokens in this sequence
+  - sequence_length: max 128, == number of tokens/words in this sequence
   - hidden size: 768, the feature size of this token. (the embedding of this token)
 
 ### word pieces
