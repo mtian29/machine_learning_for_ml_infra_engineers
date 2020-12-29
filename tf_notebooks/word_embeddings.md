@@ -32,6 +32,7 @@ convert words to index in the vocab. Look up each word in the vocab for its inde
 I dont like this movie. I -> 10, dont -> index 89, ....
 I dont like this movie -> [10, 89, 38, 11, 19, 0 , 0 ...]. Pad remaining to 0. 100 is max sequence length.
 
+vocal file has 10000 words. and one unknown word [UNK]
 _________________________________________________________________
 embedding (Embedding)        (None, 100, 16)           160000    
 
