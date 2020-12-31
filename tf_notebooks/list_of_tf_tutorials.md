@@ -20,6 +20,27 @@ model.add(tf.keras.layers.Dense(1))
 
 ## Save and load
 https://www.tensorflow.org/tutorials/keras/save_and_load
+```
+train_images.shape
+(1000, 784)
+
+## it doesn't have a input layer. But use a input_shape
+def create_model():
+  model = tf.keras.models.Sequential([
+    keras.layers.Dense(512, activation='relu', input_shape=(784,)),
+    keras.layers.Dropout(0.2),
+    keras.layers.Dense(10)
+  ])
+
+# Create a callback that saves the model's weights every 5 epochs
+cp_callback = tf.keras.callbacks.ModelCheckpoint(
+    filepath=checkpoint_path, 
+    verbose=1, 
+    save_weights_only=True,
+    save_freq=5*batch_size) ## 
+    
+!ls {checkpoint_dir}
+```
 
 ## Introduction to the Keras Tuner
 https://www.tensorflow.org/tutorials/keras/keras_tuner
