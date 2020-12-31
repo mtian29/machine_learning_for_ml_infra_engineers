@@ -45,6 +45,9 @@ cp_callback = tf.keras.callbacks.ModelCheckpoint(
 ## Introduction to the Keras Tuner
 https://www.tensorflow.org/tutorials/keras/keras_tuner
 
+Reading: Keras Tuner on the TensorFlow blog
+Keras Tuner website
+
 # hub tutorials
 https://www.tensorflow.org/hub/tutorials#text-related-tutorials
 
